@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM python:3
 WORKDIR flask-example
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
