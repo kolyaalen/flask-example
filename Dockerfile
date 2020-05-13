@@ -1,5 +1,5 @@
 FROM alpine:3.5
 WORKDIR flask-example
-RUN apt-get -y install python3-pip
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 CMD ["python", "run.py"]
