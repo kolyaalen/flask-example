@@ -4,8 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build'
-                sh 'mvn clean package'
-                archiveArtifacts artifacts: 'target/spring-boot-rest-example-0.5.0.war'
+                python 'run.py'
             }
         }
         stage('Build Docker Image') {
