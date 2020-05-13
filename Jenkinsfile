@@ -1,10 +1,18 @@
 pipeline {
     agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Running build'
+                sh 'mvn clean package'
+                archiveArtifacts artifacts: 'target/spring-boot-rest-example-0.5.0.war'
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image step"
                 script {
-                    app = docker.build("kolyaalen/task_pyton")
+                    app = docker.build("kolyaalen/task_maven")
                 }
             }
         }
@@ -39,3 +47,4 @@ pipeline {
             }
         }
     }
+}
