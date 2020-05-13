@@ -34,7 +34,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod \"docker run --restart always --name kolyaalen_python -p 8000:8000 -d kolyaalen/python:${env.BUILD_NUMBER}\""
+                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod \"docker run --restart always --name kolyaalen_python -p 5000:5000 -d kolyaalen/python:${env.BUILD_NUMBER}\""
                     }
                 }
             }
